@@ -2,9 +2,16 @@ package io.github.paaulorickardo.domain.entity;
 
 import io.github.paaulorickardo.domain.repositorio.Clientes;
 
-public class Cliente {
+import javax.persistence.*;
 
+@Entity
+//@Table (name="tb_cliente", schema= "vendas") <- so obrigatorio se tivesse tb_cliente
+public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+    @Column(name="nome", length = 100)
     private String nome;
 
     public Cliente(){
